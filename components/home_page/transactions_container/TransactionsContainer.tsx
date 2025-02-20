@@ -1,50 +1,80 @@
 "use client";
 
-import ViewAllButton from "@/components/_global/ViewAllButton";
-import { Transaction, TransactionType } from "@/models/transaction";
+import { Expense, Revenue, Transaction } from "@/models/transaction";
+import TransactionContainerTitle from "./TransactionContainerTitle";
+import { TransactionTypeNavBar } from "./TransactionTypeNavBar";
+import { useState } from "react";
+import TransactionsInfos from "./TransactionsInfos";
 
 const expenses = [
-	new Transaction({
+	new Expense({
 		id: "1",
 		title: "GTA 5",
-		transactionType: TransactionType.Expenses,
 		amount: 160.0,
 	}),
-	new Transaction({
+	new Expense({
 		id: "2",
 		title: "GTA 5",
-		transactionType: TransactionType.Expenses,
 		amount: 20.0,
 	}),
 ];
 
 const revenue = [
-	new Transaction({
-		id: "1",
+	new Revenue({
+		id: "3",
 		title: "GTA 5",
-		transactionType: TransactionType.Revenue,
 		amount: 100.0,
 	}),
-	new Transaction({
-		id: "2",
+	new Revenue({
+		id: "4",
 		title: "GTA 5",
-		transactionType: TransactionType.Revenue,
 		amount: 200,
 	}),
 ];
 
+const availableContentTypes = Object.freeze({
+	All: "All",
+	Expenses: "Expenses",
+	Revenue: "Revenue",
+} as const);
+
 const TransactionsContainer = () => {
+	const [activeContentType, setActiveContentType] = useState<string>(
+		Object.values(availableContentTypes)[0],
+	);
+	const [displayedTransactions, setDisplayedTransactions] = useState<
+		Transaction[]
+	>([...expenses, ...revenue]);
+
+	const changeContentType = (newContentType: string) => {
+		setActiveContentType(newContentType);
+
+		switch (newContentType) {
+			case availableContentTypes.All:
+				setDisplayedTransactions([...expenses, ...revenue]);
+				break;
+			case availableContentTypes.Expenses:
+				setDisplayedTransactions([...expenses]);
+				break;
+			case availableContentTypes.Revenue:
+				setDisplayedTransactions([...revenue]);
+				break;
+			default:
+				break;
+		}
+	};
+
 	return (
-		<div className="h-full w-full flex flex-col justify-start items-start bg-gray-200 py-[10px]">
-			<div className="w-full flex flex-row justify-between items-center">
-				<span className="overviewCardsTitleStyle">Recent Transactions</span>
-				<ViewAllButton
-					onbuttonClickHandler={() => {
-						alert("On Click Handler has not yet been implemented...");
-					}}
+		<div className="h-full w-full flex flex-col justify-start items-start">
+			<TransactionContainerTitle />
+			<div className="w-full flex-grow flex flex-col bg-white rounded-[10px] mt-[15px]">
+				<TransactionTypeNavBar
+					availableOptions={Object.values(availableContentTypes)}
+					currentActiveOption={activeContentType}
+					onOptionButtonClickedHandler={changeContentType}
 				/>
+				<TransactionsInfos transactions={displayedTransactions} />
 			</div>
-			<div className="w-full flex-grow bg-red-500">hello</div>
 		</div>
 	);
 };

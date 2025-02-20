@@ -1,36 +1,68 @@
-import { MdOutlineAttachMoney } from "react-icons/md";
+import { RiMoneyDollarCircleLine } from "react-icons/ri";
+import { GiExpense } from "react-icons/gi";
 
 import { JSX } from "react";
 
-export const TransactionType = Object.freeze({
-	Expenses: "Expenses",
-	Revenue: "Revenue",
-} as const);
-
-export class Transaction {
+export interface Transaction {
 	id: string;
 	title: string;
-	transactionType: (typeof TransactionType)[keyof typeof TransactionType];
 	amount: number;
 	icon?: JSX.Element;
+	createdAt?: string;
+}
+
+export class Expense implements Transaction {
+	id: string;
+	title: string;
+	amount: number;
+	icon?: JSX.Element;
+	createdAt?: string;
 
 	constructor({
 		id,
 		title,
-		transactionType,
 		amount,
 		icon,
+		createdAt,
 	}: {
 		id: string;
 		title: string;
-		transactionType: (typeof TransactionType)[keyof typeof TransactionType];
 		amount: number;
 		icon?: JSX.Element;
+		createdAt?: string;
 	}) {
 		this.id = id;
 		this.title = title;
-		this.transactionType = transactionType;
 		this.amount = amount;
-		this.icon = icon ?? <MdOutlineAttachMoney />;
+		this.icon = icon ?? <GiExpense />;
+		this.createdAt = createdAt ?? "30 Feb 2025";
+	}
+}
+
+export class Revenue implements Transaction {
+	id: string;
+	title: string;
+	amount: number;
+	icon?: JSX.Element;
+	createdAt?: string;
+
+	constructor({
+		id,
+		title,
+		amount,
+		icon,
+		createdAt,
+	}: {
+		id: string;
+		title: string;
+		amount: number;
+		icon?: JSX.Element;
+		createdAt?: string;
+	}) {
+		this.id = id;
+		this.title = title;
+		this.amount = amount;
+		this.icon = icon ?? <RiMoneyDollarCircleLine />;
+		this.createdAt = createdAt ?? "30 Feb 2025";
 	}
 }

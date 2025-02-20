@@ -21,7 +21,7 @@ const App = () => {
 					<div className="row-span-2">
 						<OverviewInfoCardsContainer />
 					</div>
-					<div className="row-span-3 grid grid-cols-7 bg-green-500">
+					<div className="row-span-3 grid grid-cols-7">
 						<div className="h-full w-full col-span-2">
 							<TransactionsContainer />
 						</div>
