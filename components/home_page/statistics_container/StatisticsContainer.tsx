@@ -18,12 +18,12 @@ const StatisticsContainer = () => {
 			overviewCardProps={{
 				cardTitleDiv: <>Statistics</>,
 				firstChildDiv: (
-					<div className="h-full w-full">
+					<div className="h-full w-full pr-[15px]">
 						<StatisticsContainerInfosRow />
 					</div>
 				),
 				secondChildDiv: (
-					<div className="h-full w-full">
+					<div className="h-full w-full pr-[15px] mt-[10px]">
 						<StatisticsChart chartValues={chartData} />
 					</div>
 				),

@@ -67,7 +67,7 @@ const TransactionsContainer = () => {
 	return (
 		<div className="h-full w-full flex flex-col justify-start items-start">
 			<TransactionContainerTitle />
-			<div className="w-full flex-grow flex flex-col bg-white rounded-[10px] mt-[15px]">
+			<div className="w-full flex-grow flex flex-col bg-white rounded-[10px] mt-[10px]">
 				<TransactionTypeNavBar
 					availableOptions={Object.values(availableContentTypes)}
 					currentActiveOption={activeContentType}
