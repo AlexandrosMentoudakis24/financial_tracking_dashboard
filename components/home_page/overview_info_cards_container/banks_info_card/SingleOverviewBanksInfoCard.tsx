@@ -67,6 +67,9 @@ const SingleOverviewBanksInfoCard = () => {
 						onIndexChangeHandler={changeCurrentIndex}
 					/>
 				),
+				firstChildSpan: 1,
+				secondChildSpan: 3,
+				thirdChildSpan: 1,
 			}}
 		/>
 	);

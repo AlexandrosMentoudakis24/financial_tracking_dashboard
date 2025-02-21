@@ -29,11 +29,10 @@ const IndexingContainer = ({
 	const hasPrev = currentIndex > 0;
 
 	return (
-		<div className="w-full grid grid-cols-3 text-[16px] text-gray-500 mt-[25px]">
+		<div className="w-full flex flex-row justify-between items-center text-[16px] text-gray-500 mt-[25px]">
 			<button
 				className={`
-          w-full flex flex-row justify-start items-center 
-          text-left 
+          flex flex-row justify-start items-center text-left 
           ${hasPrev ? "text-black" : "cursor-not-allowed"} 
         `}
 				onClick={() => {
@@ -45,13 +44,12 @@ const IndexingContainer = ({
 				<IoIosArrowBack size={20} className="mr-[3px]" />
 				Previous
 			</button>
-			<div className="w-full flex flex-row justify-center items-center gap-x-[15px]">
+			<div className="flex flex-row justify-center items-center gap-x-[15px]">
 				{...dotElements}
 			</div>
 			<button
 				className={`
-          w-full flex flex-row justify-end items-center 
-          text-right 
+          flex flex-row justify-end items-center text-right 
           ${hasNext ? "text-black" : "cursor-not-allowed"} 
         `}
 				onClick={() => {

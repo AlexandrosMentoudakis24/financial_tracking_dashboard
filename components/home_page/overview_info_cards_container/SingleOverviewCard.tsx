@@ -2,9 +2,9 @@ import { JSX } from "react";
 
 interface OverviewCardProps {
 	cardTitleDiv: JSX.Element;
-	firstChildDiv: JSX.Element;
-	secondChildDiv: JSX.Element;
-	thirdChildDiv: JSX.Element;
+	firstChildDiv?: JSX.Element;
+	secondChildDiv?: JSX.Element;
+	thirdChildDiv?: JSX.Element;
 	firstChildSpan?: number;
 	secondChildSpan?: number;
 	thirdChildSpan?: number;
@@ -13,9 +13,9 @@ interface OverviewCardProps {
 const SingleOverviewCard = ({
 	overviewCardProps,
 }: { overviewCardProps: OverviewCardProps }) => {
-	const firstSpan = overviewCardProps.firstChildSpan ?? 1;
-	const secondSpan = overviewCardProps.secondChildSpan ?? 3;
-	const thirdSpan = overviewCardProps.thirdChildSpan ?? 1;
+	const firstSpan = overviewCardProps.firstChildSpan ?? 0;
+	const secondSpan = overviewCardProps.secondChildSpan ?? 0;
+	const thirdSpan = overviewCardProps.thirdChildSpan ?? 0;
 
 	const totalspan = firstSpan + secondSpan + thirdSpan;
 	const totalRowsSpan = `grid-rows-${totalspan}`;
@@ -33,15 +33,21 @@ const SingleOverviewCard = ({
           px-[15px] py-[10px]
         `}
 			>
-				<div className={`row-span-${firstSpan}`}>
-					{overviewCardProps.firstChildDiv}
-				</div>
-				<div className={`row-span-${secondSpan}`}>
-					{overviewCardProps.secondChildDiv}
-				</div>
-				<div className={`row-span-${thirdSpan}`}>
-					{overviewCardProps.thirdChildDiv}
-				</div>
+				{overviewCardProps.firstChildDiv && (
+					<div className={`row-span-${firstSpan}`}>
+						{overviewCardProps.firstChildDiv}
+					</div>
+				)}
+				{overviewCardProps.secondChildDiv && (
+					<div className={`row-span-${secondSpan}`}>
+						{overviewCardProps.secondChildDiv}
+					</div>
+				)}
+				{overviewCardProps.thirdChildDiv && (
+					<div className={`row-span-${thirdSpan}`}>
+						{overviewCardProps.thirdChildDiv}
+					</div>
+				)}
 			</div>
 		</div>
 	);

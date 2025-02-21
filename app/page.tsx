@@ -1,8 +1,9 @@
 import OverviewInfoCardsContainer from "@/components/home_page/overview_info_cards_container/OverviewInfoCardsContainer";
+import TransactionsContainer from "@/components/home_page/transactions_container/TransactionsContainer";
 import HomeAppBarSection from "@/components/home_page/HomeAppBarSection";
 
 import { User } from "@/models/user";
-import TransactionsContainer from "@/components/home_page/transactions_container/TransactionsContainer";
+import StatisticsContainer from "@/components/home_page/statistics_container/StatisticsContainer";
 
 const user: User = new User("Alexandros", "Mentoudakis");
 const currentDate = "Feb 18, 2025";
@@ -21,9 +22,15 @@ const App = () => {
 					<div className="row-span-2">
 						<OverviewInfoCardsContainer />
 					</div>
-					<div className="row-span-3 grid grid-cols-7">
-						<div className="h-full w-full col-span-2">
+					<div className="row-span-3 h-full w-full flex flex-row justify-start items-center">
+						<div className="h-full w-[33%]">
 							<TransactionsContainer />
+						</div>
+						<div className="h-full w-[63%] ml-[4%]">
+							<div className="h-[55%] w-full">
+								<StatisticsContainer />
+							</div>
+							<div className="h-[45%] w-full bg-red-500"></div>
 						</div>
 					</div>
 				</div>

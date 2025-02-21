@@ -49,6 +49,9 @@ const SingleOverviewGoalsInfoCard = () => {
 						targetValue={goal.targetAmount}
 					/>
 				),
+				firstChildSpan: 1,
+				secondChildSpan: 3,
+				thirdChildSpan: 1,
 			}}
 		/>
 	);

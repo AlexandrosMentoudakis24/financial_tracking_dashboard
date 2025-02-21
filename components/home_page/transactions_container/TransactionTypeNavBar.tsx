@@ -16,22 +16,21 @@ export const TransactionTypeNavBar = ({
 	currentActiveOption: string;
 	onOptionButtonClickedHandler: (newOption: string) => void;
 }) => {
-	const totalGridSum = `grid-cols-${availableOptions.length}`;
-
 	const activeOptionButtonClass =
 		"text-primary_color border-b-[2px] border-primary_color";
 	const inActiveOptionButtonClass =
 		"text-black border-b-[2px] border-transparent";
 
 	return (
-		<div className={`h-[75px] w-full grid ${totalGridSum}`}>
+		<div className="h-[55px] w-full flex flex-row justify-evenly items-center">
 			{availableOptions.map((option, index) => (
 				<button
 					key={index}
 					className={`
-            grid place-items-center
             ${option === currentActiveOption ? activeOptionButtonClass : inActiveOptionButtonClass}
-            text-[18px] font-bold tracking-[2px]
+            h-full
+            text-[20px] font-bold tracking-[2px]
+            px-[10px]
           `}
 					onClick={() => {
 						onOptionButtonClickedHandler(option);

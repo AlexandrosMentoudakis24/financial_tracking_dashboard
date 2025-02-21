@@ -27,7 +27,12 @@ const SingleBankCard = ({ bankCard }: { bankCard: BankCard }) => {
 				/>
 				<div className="w-full flex flex-row justify-end items-center text-[20px] font-bold pr-[15px]">
 					<div className="text-[20px] font-bold">${bankCard.accountMoney}</div>
-					<button className="text-[18px] font-bold text-primary_color rounded-full bg-white p-[4px] ml-[20px]">
+					<button
+						className="text-[18px] font-bold text-primary_color rounded-full bg-white p-[4px] ml-[20px]"
+						onClick={() => {
+							alert("On Click function has not yet been implemented...");
+						}}
+					>
 						<MdOutlineArrowOutward />
 					</button>
 				</div>
