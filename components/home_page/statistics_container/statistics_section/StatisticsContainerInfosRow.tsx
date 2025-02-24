@@ -1,7 +1,7 @@
 "use client";
 
 import { IoIosArrowDown } from "react-icons/io";
-import SingleColoredBlockWithLabel from "./statistics_section/SingleColoredBlockk";
+import SingleColoredBlockWithLabel from "./SingleColoredBlock";
 
 const StatisticsContainerInfosRow = () => {
 	return (

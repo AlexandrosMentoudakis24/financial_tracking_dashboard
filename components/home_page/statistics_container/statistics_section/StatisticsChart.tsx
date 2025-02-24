@@ -1,5 +1,5 @@
 import { calcStatisticsChartData } from "@/utils/arithmetic_functions/calc_values_for_chart";
-import SingleStatisticsChartItem from "./statistics_section/SingleStatisticsChartItemm";
+import SingleStatisticsChartItem from "./SingleStatisticsChartItem";
 
 export interface StatisticsChartProps {
 	id: string;

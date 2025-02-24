@@ -1,6 +1,9 @@
-import SingleOverviewCard from "../overview_info_cards_container/SingleOverviewCard";
-import StatisticsContainerInfosRow from "./StatisticsContainerInfosRow";
-import { StatisticsChart, StatisticsChartProps } from "./StatisticsChart";
+import SingleOverviewCard from "../../overview_info_cards_container/SingleOverviewCard";
+import StatisticsContainerInfosRow from "./statistics_section/StatisticsContainerInfosRoww";
+import {
+	StatisticsChart,
+	StatisticsChartProps,
+} from "./statistics_section/StatisticsChartt";
 
 const chartData: StatisticsChartProps[] = [
 	{ id: "7", day: "Mon 11", currentValue: 13000, prevValue: 6500 },

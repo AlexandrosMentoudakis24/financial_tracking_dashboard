@@ -1,4 +1,4 @@
-import { StatisticsChartProps } from "@/components/home_page/statistics_container/StatisticsChart";
+import { StatisticsChartProps } from "@/components/home_page/statistics_container/statistics_section/StatisticsChart";
 
 export const calcStatisticsChartData = ({
 	chartData,

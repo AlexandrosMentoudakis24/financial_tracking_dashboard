@@ -65,7 +65,7 @@ const TransactionsContainer = () => {
 	};
 
 	return (
-		<div className="h-full w-full flex flex-col justify-start items-start">
+		<div className="h-[450px] w-[500px] flex flex-col justify-start items-start">
 			<TransactionContainerTitle />
 			<div className="w-full flex-grow flex flex-col bg-white rounded-[10px] mt-[10px]">
 				<TransactionTypeNavBar

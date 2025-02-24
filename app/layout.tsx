@@ -30,10 +30,10 @@ export default function RootLayout({
 				className={`${geistSans.variable} ${geistMono.variable} bg-white text-black antialiased`}
 			>
 				<div className="h-screen w-screen flex flex-row">
-					<div className="h-full w-[13%] bg-black">
+					<div className="h-screen w-[13%] bg-black">
 						<SideNavigationBar />
 					</div>
-					<div className="h-full w-[87%]">{children}</div>
+					<div className="h-screen w-[87%] overflow-auto">{children}</div>
 				</div>
 			</body>
 		</html>
