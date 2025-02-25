@@ -10,7 +10,7 @@ const DefaultPagesParent = ({
             flex flex-col 
             sm:justify-start md:justify-start  items-start
             overflow-auto 
-            gap-x-[20px] gap-y-[35px] 
+            gap-x-[20px] gap-y-[15px] 
             px-[25px] pt-[10px] pb-[20px]
         "
 		>

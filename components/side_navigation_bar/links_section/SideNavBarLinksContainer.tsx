@@ -74,7 +74,10 @@ const SideNavBarLinksContainer = () => {
 	return (
 		<div className="h-full w-full flex flex-col justify-start items-center text-center gap-y-[10px]">
 			{links.map((link) => {
-				link.isActive = currentPath === link.target;
+				link.isActive =
+					link.target === "/"
+						? currentPath === "/"
+						: currentPath.startsWith(link.target);
 
 				return <SingleSideNavBarLink key={link.id} item={link} />;
 			})}
