@@ -12,6 +12,7 @@ export default {
 				background: "#FFFFFF",
 				foreground: "#000000",
 				primary_color: "#299D91",
+				logout_btn_bg_color: "#262626",
 			},
 		},
 	},

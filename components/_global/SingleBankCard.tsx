@@ -3,12 +3,12 @@ import { MdOutlineArrowOutward } from "react-icons/md";
 import Image from "next/image";
 
 import { BankCard } from "@/models/bank_card";
+import { formatBankCardNumber } from "@/utils/string_formatting/string_formatting";
 
 const SingleBankCard = ({ bankCard }: { bankCard: BankCard }) => {
-	const firstQuarter = bankCard.cardNumber.slice(0, 4);
-	const lastQuarter = bankCard.cardNumber.slice(12, 16);
-
-	const formattedCardNumber = firstQuarter + " **** " + " **** " + lastQuarter;
+	const formattedCardNumber = formatBankCardNumber({
+		cardNumber: bankCard.cardNumber,
+	});
 
 	return (
 		<div className="h-[115px] w-full grid grid-cols-2 text-white rounded-[5px] bg-primary_color px-[15px] mt-[10px]">

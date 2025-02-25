@@ -27,8 +27,8 @@ const links: SideNavBarLinkProps[] = [
 	{
 		id: "2",
 		icon: <LuWallet size={23} />,
-		title: "Balance",
-		target: "/balance",
+		title: "Balances",
+		target: "/balances",
 		isActive: false,
 	},
 	{

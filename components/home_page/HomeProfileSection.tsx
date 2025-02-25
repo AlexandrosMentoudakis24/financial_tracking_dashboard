@@ -10,7 +10,9 @@ const HomeProfileSection = ({
 				Hello {userFName}
 			</div>
 			<div className="flex flex-row items-center text-center text-[18px] text-gray-400 ml-[25px] mt-[2px]">
-				<RxDoubleArrowRight />
+				<button>
+					<RxDoubleArrowRight />
+				</button>
 				<span className="mt-[3px] ml-[10px]"> {currentDate}</span>
 			</div>
 		</div>

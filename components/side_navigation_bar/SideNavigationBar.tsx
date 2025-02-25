@@ -1,4 +1,5 @@
 import SideNavBarLinksContainer from "./links_section/SideNavBarLinksContainer";
+import LogoutContainer from "./logout_section/LogoutContainer";
 
 const SideNavigationBar = () => {
 	return (
@@ -16,7 +17,7 @@ const SideNavigationBar = () => {
 			</div>
 			<div
 				className="
-          h-[70%] w-[90%] 
+          h-[65%] w-[90%] 
           flex flex-col 
           gap-y-[20px]
           my-[30px]
@@ -24,7 +25,9 @@ const SideNavigationBar = () => {
 			>
 				<SideNavBarLinksContainer />
 			</div>
-			<div className="h-[23%] w-full bg-blue-500">Overview</div>
+			<div className="h-[33%] w-full">
+				<LogoutContainer />
+			</div>
 		</div>
 	);
 };

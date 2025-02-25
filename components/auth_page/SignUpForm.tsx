@@ -1,8 +1,8 @@
 "use client";
 
-import SingleInputField from "../SingleInputFieldInputField";
-import CompleteAuthActionButton from "../CompleteAuthActionButtontionButton";
-import AlternativeActionsContainer from "../AlternativeActionsContainersContainer";
+import AlternativeActionsContainer from "./AlternativeActionsContainer";
+import CompleteAuthActionButton from "./CompleteAuthActionButton";
+import SingleInputField from "./SingleInputField";
 
 const SignUpForm = ({
 	onAuthStateChangeButtonClickHandler,
