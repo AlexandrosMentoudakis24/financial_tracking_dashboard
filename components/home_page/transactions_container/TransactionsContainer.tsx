@@ -1,67 +1,33 @@
 "use client";
 
-import { Expense, Revenue, Transaction } from "@/models/transaction";
+import {
+	availableTransactionsContentTypes,
+	Transaction,
+	transactions,
+} from "@/models/transaction";
+
 import TransactionContainerTitle from "./TransactionContainerTitle";
-import { TransactionTypeNavBar } from "./TransactionTypeNavBar";
 import { useState } from "react";
 import TransactionsInfos from "./TransactionsInfos";
-
-const expenses = [
-	new Expense({
-		id: "1",
-		title: "GTA 5",
-		amount: 160.0,
-	}),
-	new Expense({
-		id: "2",
-		title: "GTA 5",
-		amount: 20.0,
-	}),
-];
-
-const revenue = [
-	new Revenue({
-		id: "3",
-		title: "GTA 5",
-		amount: 100.0,
-	}),
-	new Revenue({
-		id: "4",
-		title: "GTA 5",
-		amount: 200,
-	}),
-];
-
-const availableContentTypes = Object.freeze({
-	All: "All",
-	Expenses: "Expenses",
-	Revenue: "Revenue",
-} as const);
+import TransactionTypeNavBar from "./TransactionTypeNavBar";
+import { filterTransactionsByType } from "@/utils/type_filtering/type_filtering";
 
 const TransactionsContainer = () => {
 	const [activeContentType, setActiveContentType] = useState<string>(
-		Object.values(availableContentTypes)[0],
+		Object.values(availableTransactionsContentTypes)[0],
 	);
-	const [displayedTransactions, setDisplayedTransactions] = useState<
-		Transaction[]
-	>([...expenses, ...revenue]);
+	const [displayedTransactions, setDisplayedTransactions] =
+		useState<Transaction[]>(transactions);
 
 	const changeContentType = (newContentType: string) => {
 		setActiveContentType(newContentType);
 
-		switch (newContentType) {
-			case availableContentTypes.All:
-				setDisplayedTransactions([...expenses, ...revenue]);
-				break;
-			case availableContentTypes.Expenses:
-				setDisplayedTransactions([...expenses]);
-				break;
-			case availableContentTypes.Revenue:
-				setDisplayedTransactions([...revenue]);
-				break;
-			default:
-				break;
-		}
+		setDisplayedTransactions(
+			filterTransactionsByType({
+				newType: newContentType,
+				transactions: transactions,
+			}),
+		);
 	};
 
 	return (
@@ -69,7 +35,7 @@ const TransactionsContainer = () => {
 			<TransactionContainerTitle />
 			<div className="w-full flex-grow flex flex-col bg-white rounded-[10px] mt-[10px]">
 				<TransactionTypeNavBar
-					availableOptions={Object.values(availableContentTypes)}
+					availableOptions={Object.values(availableTransactionsContentTypes)}
 					currentActiveOption={activeContentType}
 					onOptionButtonClickedHandler={changeContentType}
 				/>

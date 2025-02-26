@@ -3,6 +3,15 @@ import { GiExpense } from "react-icons/gi";
 
 import { JSX } from "react";
 
+export const availableTransactionsContentTypes = Object.freeze({
+	All: "All",
+	Expenses: "Expenses",
+	Revenue: "Revenue",
+} as const);
+
+//export type TransactionNavBarType =
+//	(typeof availableTransactionsContentTypes)[keyof typeof availableTransactionsContentTypes];
+
 export interface Transaction {
 	id: string;
 	title: string;
@@ -66,3 +75,27 @@ export class Revenue implements Transaction {
 		this.createdAt = createdAt ?? "30 Feb 2025";
 	}
 }
+
+export const transactions = [
+	new Expense({
+		id: "1",
+		title: "GTA 1",
+		amount: 10.0,
+	}),
+	new Expense({
+		id: "2",
+		title: "GTA 2",
+		amount: 20.0,
+	}),
+
+	new Revenue({
+		id: "3",
+		title: "GTA 3",
+		amount: 30.0,
+	}),
+	new Revenue({
+		id: "4",
+		title: "GTA 4",
+		amount: 40.0,
+	}),
+];

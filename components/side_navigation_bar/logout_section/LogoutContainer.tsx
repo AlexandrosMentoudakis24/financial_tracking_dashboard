@@ -1,3 +1,5 @@
+import { IoIosLogOut } from "react-icons/io";
+
 import { CgMoreVerticalAlt } from "react-icons/cg";
 
 const LogoutContainer = () => {
@@ -12,12 +14,17 @@ const LogoutContainer = () => {
 			<button
 				className="
           w-full 
+          flex flex-row 
+          justify-center items-center
           tracking-[2px] 
-          bg-logout_btn_bg_color 
+          bg-logout_btn_bg_color hover:bg-opacity-80 hover:opacity-80
           rounded-[10px]
           py-[12px] 
         "
 			>
+				<span className="mr-[10px]">
+					<IoIosLogOut size={23} />
+				</span>
 				Logout
 			</button>
 			<div

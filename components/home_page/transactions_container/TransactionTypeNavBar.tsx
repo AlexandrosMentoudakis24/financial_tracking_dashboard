@@ -1,13 +1,4 @@
-export const availableContentTypes = Object.freeze({
-	All: "All",
-	Expenses: "Expenses",
-	Revenue: "Revenue",
-} as const);
-
-export type TransactionNavBarType =
-	(typeof availableContentTypes)[keyof typeof availableContentTypes];
-
-export const TransactionTypeNavBar = ({
+const TransactionTypeNavBar = ({
 	availableOptions,
 	currentActiveOption,
 	onOptionButtonClickedHandler,
@@ -42,3 +33,4 @@ export const TransactionTypeNavBar = ({
 		</div>
 	);
 };
+export default TransactionTypeNavBar;

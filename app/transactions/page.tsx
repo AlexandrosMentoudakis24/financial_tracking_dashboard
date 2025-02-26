@@ -1,8 +1,12 @@
+import TransactionsPageContent from "@/components/transactions_page/TransactionsPageContent";
+import DefaultPagesParent from "@/components/_global/DefaultPagesParent";
+
 const TransactionsPage = () => {
 	return (
-		<div className="h-full w-full flex flex-col">
-			<div>Transactions Page</div>
-		</div>
+		<DefaultPagesParent>
+			<div className="overviewCardsTitleStyle">Recent Transactions</div>
+			<TransactionsPageContent />
+		</DefaultPagesParent>
 	);
 };
 

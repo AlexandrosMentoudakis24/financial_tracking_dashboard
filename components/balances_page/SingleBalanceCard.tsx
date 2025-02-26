@@ -19,7 +19,7 @@ const SingleBalanceCard = () => {
 			<div className="w-full flex flex-row justify-between items-center text-[17px] text-gray-600">
 				<span>Personal</span>
 				<button
-					className="text-[30px] text-primary_color"
+					className="text-[30px] text-primary_color hover:text-black"
 					onClick={() => {
 						router.push(`./${currentPath}/accounts/123`);
 					}}
@@ -43,7 +43,7 @@ const SingleBalanceCard = () => {
                 justify-around items-center text-center 
                 text-[17px] text-white  
                 rounded-[5px] 
-                bg-primary_color hover:bg-opacity-80 
+                bg-primary_color hover:bg-opacity-80 hover:opacity-80
                 px-[20px] py-[7px] 
               "
 				>
