@@ -14,7 +14,7 @@ const PageContentNavBarItem = ({
 	return (
 		<div className="text-[20px] tracking-[1px] font-bold text-black">
 			<button
-				className={`border-b-[2px] px-[10px] py-[3px] ${isActive && activeItemStyle}`}
+				className={`border-b-[2px] px-[10px] py-[3px] ${isActive ? activeItemStyle : "border-transparent"}`}
 				onClick={() => {
 					if (isActive) return;
 

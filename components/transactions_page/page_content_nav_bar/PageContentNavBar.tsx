@@ -2,14 +2,17 @@
 
 import { useState } from "react";
 
-import { availableTransactionsContentTypes } from "@/models/transaction";
 import PageContentNavBarItem from "./PageContentNavBarItem";
 
 const TransactionsPageNavBar = ({
+	availableTypes,
 	onContentChangeHandler,
-}: { onContentChangeHandler: (newContent: string) => void }) => {
+}: {
+	availableTypes: string[];
+	onContentChangeHandler: (newContent: string) => void;
+}) => {
 	const [activePageContentTitle, setActivePageContentTitle] = useState<string>(
-		Object.values(availableTransactionsContentTypes)[0],
+		availableTypes[0],
 	);
 
 	const changeActiveContent = (newTitle: string) => {
@@ -20,7 +23,7 @@ const TransactionsPageNavBar = ({
 
 	return (
 		<div className="w-full flex flex-row justify-start items-center gap-x-[30px]">
-			{Object.values(availableTransactionsContentTypes).map((value) => {
+			{availableTypes.map((value) => {
 				return (
 					<PageContentNavBarItem
 						key={value}

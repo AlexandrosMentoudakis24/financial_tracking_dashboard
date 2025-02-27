@@ -5,7 +5,9 @@ const TransactionsPage = () => {
 	return (
 		<DefaultPagesParent>
 			<div className="overviewCardsTitleStyle">Recent Transactions</div>
-			<TransactionsPageContent />
+			<div className="h-full w-full">
+				<TransactionsPageContent />
+			</div>
 		</DefaultPagesParent>
 	);
 };

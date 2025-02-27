@@ -1,9 +1,9 @@
-import { Expense, Transaction } from "@/models/transaction";
+import { Transaction } from "@/models/transaction";
 
 const SingleTransactionItem = ({
 	transaction,
 }: { transaction: Transaction }) => {
-	const isExpenseTransaction = transaction instanceof Expense;
+	const isExpenseTransaction = transaction.type === "Expense";
 
 	const transactionAmountTextClass = isExpenseTransaction
 		? "text-red-500"

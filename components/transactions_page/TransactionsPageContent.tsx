@@ -3,30 +3,32 @@
 import { useState } from "react";
 
 import TransactionsTable from "./transactions_container_content/TransactionsTable";
+import { availableContentPageTypes, transactions } from "@/models/transaction";
 import PageContentNavBar from "./page_content_nav_bar/PageContentNavBar";
-import {
-	availableTransactionsContentTypes,
-	transactions,
-} from "@/models/transaction";
 
 const TransactionsPageContent = () => {
+	const contentTypes = Object.values(availableContentPageTypes);
+
 	const [activeContentTypeTitle, setActiveContentTypeTitle] = useState<string>(
-		Object.values(availableTransactionsContentTypes)[0],
+		contentTypes[0],
 	);
 
 	return (
 		<div className="w-full flex-grow flex flex-col">
 			<div className="mb-[20px]">
 				<PageContentNavBar
+					availableTypes={contentTypes}
 					onContentChangeHandler={(newContent) => {
 						setActiveContentTypeTitle(newContent);
 					}}
 				/>
 			</div>
-			<TransactionsTable
-				activeContentType={activeContentTypeTitle}
-				transactions={transactions}
-			/>
+			<div className="h-[700px] w-full">
+				<TransactionsTable
+					activeContentType={activeContentTypeTitle}
+					transactions={transactions}
+				/>
+			</div>
 		</div>
 	);
 };

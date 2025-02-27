@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 
 import { filterTransactionsByType } from "@/utils/type_filtering/type_filtering";
-import { Transaction } from "@/models/transaction";
 import TransactionsTableHeaderRow from "./TransactionsTableHeaderRow";
+import TransactionsTableContent from "./TransactionsTableContent";
+import { Transaction } from "@/models/transaction";
 
 const TransactionsTable = ({
 	activeContentType,
@@ -14,8 +15,6 @@ const TransactionsTable = ({
 	const [displayedTransactions, setDisplayedTransactions] =
 		useState<Transaction[]>(transactions);
 
-	console.log(displayedTransactions);
-
 	useEffect(() => {
 		setDisplayedTransactions(
 			filterTransactionsByType({
@@ -26,9 +25,17 @@ const TransactionsTable = ({
 	}, [activeContentType, transactions]);
 
 	return (
-		<div className="w-full flex-grow flex flex-col rounded-[5px] bg-white px-[30px] py-[20px]">
+		<div className="h-full w-full flex flex-col rounded-[5px] bg-white px-[5px] py-[15px]">
 			<div className="h-[50px] w-full">
 				<TransactionsTableHeaderRow />
+			</div>
+			<div className="scrollable h-full w-full flex flex-col mb-[20px]">
+				<TransactionsTableContent transactions={displayedTransactions} />
+			</div>
+			<div className="h-[50px] w-full flex flex-row justify-center items-center text-center">
+				<button className="text-[20px] text-white font-bold rounded-[5px] bg-primary_color px-[25px] py-[10px]">
+					Load More
+				</button>
 			</div>
 		</div>
 	);

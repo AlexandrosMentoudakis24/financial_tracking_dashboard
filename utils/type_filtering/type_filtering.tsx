@@ -1,9 +1,4 @@
-import {
-	availableTransactionsContentTypes,
-	Expense,
-	Revenue,
-	Transaction,
-} from "@/models/transaction";
+import { availableContentPageTypes, Transaction } from "@/models/transaction";
 
 export const filterTransactionsByType = ({
 	newType,
@@ -12,13 +7,9 @@ export const filterTransactionsByType = ({
 	newType: string;
 	transactions: Transaction[];
 }) => {
-	if (newType === availableTransactionsContentTypes.All) {
+	if (newType === availableContentPageTypes.All) {
 		return transactions;
 	}
 
-	return transactions.filter((el) =>
-		newType === availableTransactionsContentTypes.Expenses
-			? el instanceof Expense
-			: el instanceof Revenue,
-	);
+	return transactions.filter((el) => el.type === newType);
 };

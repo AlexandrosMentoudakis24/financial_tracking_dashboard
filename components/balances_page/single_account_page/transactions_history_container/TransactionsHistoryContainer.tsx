@@ -13,15 +13,11 @@ const TransactionsHistoryContainer = () => {
           h-[450px] w-[80%]
           flex flex-col 
           rounded-[5px] bg-white
-          px-[10px] py-[15px]
+          px-[5px] py-[15px]
         "
 			>
 				<TransactionsHistoryTableHeaderRow />
-				<div className="w-full flex-grow flex flex-col justify-start gap-y-[15px] overflow-auto mt-[15px] mb-[25px]">
-					<TransactionsHistoryTableDataRow />
-					<TransactionsHistoryTableDataRow />
-					<TransactionsHistoryTableDataRow />
-					<TransactionsHistoryTableDataRow />
+				<div className="scrollable w-full flex-grow flex flex-col justify-start gap-y-[15px] mt-[15px] mb-[25px]">
 					<TransactionsHistoryTableDataRow />
 					<TransactionsHistoryTableDataRow />
 					<TransactionsHistoryTableDataRow />

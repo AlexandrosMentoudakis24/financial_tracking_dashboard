@@ -1,21 +1,24 @@
 "use client";
 
+import { useState } from "react";
+
+import { filterTransactionsByType } from "@/utils/type_filtering/type_filtering";
+import TransactionContainerTitle from "./TransactionContainerTitle";
+import TransactionTypeNavBar from "./TransactionTypeNavBar";
+import TransactionsInfos from "./TransactionsInfos";
 import {
-	availableTransactionsContentTypes,
+	availableContentPageTypes,
 	Transaction,
 	transactions,
 } from "@/models/transaction";
 
-import TransactionContainerTitle from "./TransactionContainerTitle";
-import { useState } from "react";
-import TransactionsInfos from "./TransactionsInfos";
-import TransactionTypeNavBar from "./TransactionTypeNavBar";
-import { filterTransactionsByType } from "@/utils/type_filtering/type_filtering";
-
 const TransactionsContainer = () => {
+	const availableTypes = Object.values(availableContentPageTypes);
+
 	const [activeContentType, setActiveContentType] = useState<string>(
-		Object.values(availableTransactionsContentTypes)[0],
+		availableTypes[0],
 	);
+
 	const [displayedTransactions, setDisplayedTransactions] =
 		useState<Transaction[]>(transactions);
 
@@ -35,7 +38,7 @@ const TransactionsContainer = () => {
 			<TransactionContainerTitle />
 			<div className="w-full flex-grow flex flex-col bg-white rounded-[10px] mt-[10px]">
 				<TransactionTypeNavBar
-					availableOptions={Object.values(availableTransactionsContentTypes)}
+					availableOptions={availableTypes}
 					currentActiveOption={activeContentType}
 					onOptionButtonClickedHandler={changeContentType}
 				/>
