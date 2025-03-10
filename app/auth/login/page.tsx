@@ -1,8 +1,9 @@
 "use client";
 
-import LoginForm from "@/components/auth_page/LoginForm";
-import ResetPasswordForm from "@/components/auth_page/ResetPasswordForm";
 import { useSearchParams, useRouter } from "next/navigation";
+
+import ResetPasswordForm from "@/components/auth_page/ResetPasswordForm";
+import LoginForm from "@/components/auth_page/LoginForm";
 
 const forgotPasswordParam = "forgotPassword";
 
@@ -13,7 +14,7 @@ const LoginPage = () => {
 	const isForgotPasswordFlagSet =
 		searchParams.get(forgotPasswordParam)?.toString().toLowerCase() === "true";
 
-	var displayedAuthForm = (
+	let displayedAuthForm = (
 		<LoginForm
 			onAuthStateChangeButtonClickHandler={() => {
 				router.push("./signup");
@@ -43,7 +44,7 @@ const LoginPage = () => {
 	}
 
 	return (
-		<div className="h-screen w-screen flex flex-col justify-center items-center text-center">
+		<div className="h-full w-full flex flex-col justify-center items-center text-center">
 			<div className="text-primary_color text-[25px] font-bold tracking-[1px]">
 				Expense Tracking Dashboard
 			</div>

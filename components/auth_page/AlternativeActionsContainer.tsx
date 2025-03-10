@@ -1,6 +1,6 @@
 "use client";
 
-import CompleteActionWithService from "./auth_page/CompleteActionWithServicee";
+import CompleteActionWithService from "./CompleteActionWithService";
 
 const AlternativeActionsContainer = ({
 	text,

@@ -14,8 +14,8 @@ const SignUpForm = ({
 			<div className="text-[22px] font-bold tracking-[1px] pt-[45px]">
 				Create Your Account
 			</div>
-			<div className="h-[550px] w-[430px] flex flex-col text-left text-black bg-white mt-[20px] px-[20px]">
-				<div className="h-[48%] flex flex-col justify-between">
+			<div className="h-[550px] w-[430px] flex flex-col text-left text-black rounded-md bg-white mt-[20px] px-[20px] py-[10px]">
+				<div className="h-[45%] flex flex-col justify-between">
 					<SingleInputField
 						key={1}
 						label={<>Full Name</>}
@@ -33,7 +33,7 @@ const SignUpForm = ({
 						isPrivateField={true}
 					/>
 				</div>
-				<div className="h-[16%] flex flex-col pt-[20px]">
+				<div className="h-[18%] flex flex-col pt-[20px]">
 					<div className="text-[14px] text-gray-600">
 						By continuing, you agree on our{" "}
 						<button className="text-primary_color">terms of service.</button>

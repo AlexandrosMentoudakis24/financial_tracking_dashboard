@@ -1,11 +1,12 @@
 "use client";
 
+import { useState } from "react";
+
 import { MdOutlineDone } from "react-icons/md";
 
-import AlternativeActionsContainer from "./auth_page/AlternativeActionsContainerr";
-import CompleteAuthActionButton from "./auth_page/CompleteAuthActionButtonn";
-import SingleInputField from "./auth_page/SingleInputFieldd";
-import { useState } from "react";
+import AlternativeActionsContainer from "./AlternativeActionsContainer";
+import CompleteAuthActionButton from "./CompleteAuthActionButton";
+import SingleInputField from "./SingleInputField";
 
 const LoginForm = ({
 	onAuthStateChangeButtonClickHandler,
@@ -25,14 +26,14 @@ const LoginForm = ({
 			<div className="text-[22px] font-bold tracking-[1px] pt-[45px]">
 				Log Into Your Account
 			</div>
-			<div className="h-[430px] w-[430px] flex flex-col text-left text-black bg-white mt-[20px] px-[20px]">
+			<div className="h-[450px] w-[430px] flex flex-col text-left text-black rounded-md bg-white mt-[20px] px-[20px] py-[15px]">
 				<div className="h-[65%] flex flex-col justify-between">
 					<SingleInputField
 						key={1}
-						label={<div className="text-[20px]">Password</div>}
+						label={<div className="text-[20px]">Email Address</div>}
 						placeholder="Enter valid Email..."
 					/>
-					<div className="flex flex-row justify-between items-center">
+					<div className="flex flex-row justify-between items-center mt-[10px]">
 						<SingleInputField
 							key={2}
 							label={
@@ -51,7 +52,7 @@ const LoginForm = ({
 						/>
 					</div>
 				</div>
-				<div className="h-[21%] flex flex-col pt-[20px]">
+				<div className="flex flex-col pt-[20px]">
 					<div className="flex flex-row justify-start items-center text-[14px] text-gray-600">
 						<button
 							className={`h-[18px] w-[18px] flex justify-center items-center text-center ${rememberMeBtnClass}`}

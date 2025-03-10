@@ -7,7 +7,7 @@ const HomeProfileSection = ({
 	return (
 		<div className="flex flex-row justify-start items-center text-center">
 			<div className="text-[23px] tracking-[1px] font-bold">
-				Hello {userFName}
+				Hello, {userFName}
 			</div>
 			<div className="flex flex-row items-center text-center text-[18px] text-gray-400 ml-[25px] mt-[2px]">
 				<button>

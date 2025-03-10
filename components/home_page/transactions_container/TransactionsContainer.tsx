@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { filterTransactionsByType } from "@/utils/type_filtering/type_filtering";
 import TransactionContainerTitle from "./TransactionContainerTitle";
@@ -19,8 +19,13 @@ const TransactionsContainer = () => {
 		availableTypes[0],
 	);
 
-	const [displayedTransactions, setDisplayedTransactions] =
-		useState<Transaction[]>(transactions);
+	const [displayedTransactions, setDisplayedTransactions] = useState<
+		Transaction[]
+	>([]);
+
+	useEffect(() => {
+		changeContentType(activeContentType);
+	}, [activeContentType]);
 
 	const changeContentType = (newContentType: string) => {
 		setActiveContentType(newContentType);
@@ -29,7 +34,7 @@ const TransactionsContainer = () => {
 			filterTransactionsByType({
 				newType: newContentType,
 				transactions: transactions,
-			}),
+			}).slice(0, 4),
 		);
 	};
 
